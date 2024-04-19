@@ -22,7 +22,9 @@ export default function App() {
     setDice(allNewDice());
   }
 
-  const diceElement = dice.map((die) => <Die key={die.id} value={die.value} />);
+  const diceElement = dice.map((die) => (
+    <Die key={die.id} value={die.value} isHeld={die.isHeld} />
+  ));
 
   return (
     <>
