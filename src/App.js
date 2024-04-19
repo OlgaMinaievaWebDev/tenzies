@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Die from "./Die";
 export default function App() {
-  const [dice, seDice] = useState(allNewDice());
+  const [dice, setDice] = useState(allNewDice());
 
   function allNewDice() {
     const newDice = [];
@@ -13,11 +13,19 @@ export default function App() {
     return newDice;
   }
 
+  function rollDice() {
+    setDice(allNewDice());
+  }
+
   const diceElement = dice.map((dice) => <Die value={dice} />);
+
   return (
     <>
       <main>
         <div className="dice-container">{diceElement}</div>
+        <button className="roll-dice" onClick={rollDice}>
+          Roll
+        </button>
       </main>
     </>
   );
